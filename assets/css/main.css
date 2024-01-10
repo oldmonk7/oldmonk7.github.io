@@ -154,7 +154,6 @@
 		font-weight: 300;
 		line-height: 2;
 		letter-spacing: 0.1em;
-		text-transform: uppercase;
 	}
 
 		@media screen and (max-width: 1680px) {
