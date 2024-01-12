@@ -495,15 +495,16 @@
 				text-decoration: none;
 				position: relative;
 				display: block;
-				width: 3.75em;
-				height: 3.75em;
+				width: 2.75em;
+				height: 2.75em;
 				border-radius: 100%;
 				border: solid 1px #c8cccf;
-				line-height: 3.75em;
+				line-height: 2.75em;
 				overflow: hidden;
 				text-align: center;
-				text-indent: 3.75em;
+				text-indent: 2.75em;
 				white-space: nowrap;
+				margin: 5px;
 			}
 
 				ul.icons li a:before {
@@ -516,7 +517,7 @@
 					line-height: 1;
 					text-transform: none !important;
 					font-family: 'Font Awesome 5 Free';
-					font-weight: 400;
+					font-weight: 100;
 				}
 
 				ul.icons li a:before {
