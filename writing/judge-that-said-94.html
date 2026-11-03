@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>The judge that said 94% | Shashank Garg</title>
+	<meta name="description" content="Should you ask the smartest judge, or the fastest one? A short story about LLM-as-a-judge." />
+	<style>
+		:root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e5e5e5; --link:#0b57d0; --code:#f3f3f3; }
+		@media (prefers-color-scheme: dark) {
+			:root { --bg:#111; --fg:#e8e8e8; --muted:#9a9a9a; --line:#2a2a2a; --link:#8ab4f8; --code:#1d1d1d; }
+		}
+		* { box-sizing: border-box; }
+		body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+		main { max-width:640px; margin:0 auto; padding:56px 20px 48px; }
+		.back { font-size:0.9rem; }
+		h1 { font-size:2rem; line-height:1.2; margin:24px 0 4px; letter-spacing:-0.01em; }
+		.date { color:var(--muted); font-size:0.9rem; margin:0 0 32px; }
+		h2 { font-size:1.25rem; margin:36px 0 10px; }
+		p { margin:0 0 14px; }
+		ul { padding-left:22px; margin:0 0 14px; }
+		li { margin:0 0 8px; }
+		a { color:var(--link); text-decoration:none; }
+		a:hover { text-decoration:underline; }
+		code { background:var(--code); padding:2px 6px; border-radius:4px; font-size:0.92em; }
+		img { max-width:100%; height:auto; display:block; margin:20px 0; border-radius:6px; }
+		hr { border:0; border-top:1px solid var(--line); margin:36px 0; }
+		footer { margin-top:48px; color:var(--muted); font-size:0.85rem; }
+	</style>
+</head>
+<body>
+<main>
+	<a class="back" href="/">&larr; Shashank Garg</a>
+	<h1>The judge that said 94%</h1>
+	<p class="date">November 3, 2026</p>
+
+	<p>Here is a strange question. If you want to know whether something works, should you ask the smartest judge you can find, or the fastest one?</p>
+	<p>Most of us answer "smartest" without thinking. Let's slow down and see why that might be wrong.</p>
+	<p>Imagine two teams. Both ship a support bot. Both want to know if it works.</p>
+	<p>Team Blue picks the smartest model available as the judge. It reads every answer carefully and thinks before it grades. Quality is great. One full eval takes an afternoon and costs real money.</p>
+	<p>So Team Blue runs it weekly. This is the sensible thing to do if you only look at the invoice.</p>
+
+	<h2>Monday: 94%</h2>
+	<p>The dashboard says 94% pass. Everyone relaxes. On Tuesday, a prompt change ships.</p>
+	<p>By Thursday, support tickets are climbing. The bot is confidently telling customers to reboot things that do not need rebooting. Nobody knows, because the next eval is on Monday.</p>
+	<p>Three days of damage. The judge was not wrong. The judge was not there.</p>
+	<img src="/images/writing/meme-94-percent.svg" alt="A dashboard says 94% pass while production is on fire" />
+	<p>Feedback loop length is the whole game. A perfect measurement that arrives late is a postmortem.</p>
+
+	<h2>Team Red</h2>
+	<p>Team Red has the same bot and the same problem. Different judge.</p>
+	<p>Theirs is a small, fast model. It does not reason out loud. It reads an answer and returns pass or fail. It is dumber than Blue's judge and about 100x cheaper. (Rough guess. Check your own bill.)</p>
+	<p>Cheap means they can run it on everything: every change, every pull request, a slice of live traffic.</p>
+	<p>Tuesday, same prompt change. Tuesday afternoon, the dashboard dips. Tuesday evening, rolled back. Customers notice nothing.</p>
+	<img src="/images/writing/meme-big-vs-small-judge.svg" alt="Genius judge runs once a week. Tiny judge runs on every pull request." />
+
+	<h2>Why the dumb judge won</h2>
+	<p>Simple math. A judge's value is roughly:</p>
+	<p><code>how right it is x how often it runs</code></p>
+	<p>Blue maximized the first number. Red maximized the second. For catching regressions, the second number is bigger. A 90% accurate judge that runs on all traffic finds more bugs than a 99% accurate judge that runs on a sample.</p>
+	<p>Speed also changes behavior. When an eval takes seconds, engineers run it before they push. When it takes hours, they push and hope. People respond to the cost of feedback. This is not a morale problem. It is physics, with humans in it.</p>
+
+	<h2>Where the dumb judge breaks</h2>
+	<p>Of course it breaks. Here is how.</p>
+	<ul>
+		<li>It passes confident, fluent, wrong answers. Wrong with good grammar is still wrong.</li>
+		<li>It misses bad math. Anything that needs three steps to check, it checks in zero.</li>
+		<li>On close calls between two good answers, it is a coin flip with opinions.</li>
+		<li>It tends to like text that looks like its own.</li>
+	</ul>
+	<p>Fine. Engineer around it.</p>
+	<p><strong>1. Ask small questions.</strong> "Is this good?" is not a question. "Does the answer use only facts from the help article?" is. Small models are fine at narrow yes/no checks. Split a big rubric into five small ones. Bonus: when something fails, you know which check failed.</p>
+	<p><strong>2. Calibrate against humans.</strong> Hand-label a few hundred real outputs. Measure agreement. If the judge disagrees with you, the judge is wrong until proven otherwise. Fix the prompt, not the dashboard.</p>
+	<p><strong>3. Layer them.</strong> Fast judges run on everything. When they disagree, or a score is near the line, escalate to a slow reasoning model. Send a small sample of those to a human. Feed the human labels back to tune the fast judge. Cheap on the common case, careful on the hard one.</p>
+	<p><strong>4. Swap the order.</strong> For A vs B tests, also run B vs A. Position bias is real. If the answer flips, the answer is "tie".</p>
+
+	<h2>When not to do this</h2>
+	<ul>
+		<li>The task needs real reasoning to verify: math, code logic, legal text.</li>
+		<li>A wrong verdict is expensive and no human looks.</li>
+		<li>You have not calibrated yet. Uncalibrated judges are vibes with an API.</li>
+	</ul>
+
+	<h2>One more way to see it</h2>
+	<p>Step back from bots for a moment.</p>
+	<p>A judge is a way of turning a messy world into a number. We build one because we cannot hold the whole world in our heads. The number is a promise: "this is what is happening."</p>
+	<p>Now notice what Blue's number and Red's number have in common. Neither one is the truth. Each is a small window onto it. The only real difference is how often the window opens, and how much we have checked that the glass is clear.</p>
+	<p>So the question was never "which judge is smartest?" It was "how quickly will I find out I am wrong?"</p>
+	<p>The most dangerous number in any system is the one we stopped questioning. A fast judge, checked against people, keeps asking.</p>
+	<p><strong>Rule:</strong> never trust a judge you have not checked against a human.</p>
+
+	<hr />
+	<p><em>Team Blue and Team Red are made up. The failure mode is not.</em></p>
+
+	<footer>&copy; Shashank Garg, 2020-2026</footer>
+</main>
+</body>
+</html>

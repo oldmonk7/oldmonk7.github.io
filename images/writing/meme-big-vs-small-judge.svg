@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="Helvetica, Arial, sans-serif">
+  <rect width="800" height="380" fill="#fff"/>
+  <rect x="10" y="10" width="385" height="360" fill="#f4f4f4" stroke="#222" stroke-width="3"/>
+  <rect x="405" y="10" width="385" height="360" fill="#f4f4f4" stroke="#222" stroke-width="3"/>
+  <text x="202" y="48" font-size="22" font-weight="700" text-anchor="middle">GENIUS JUDGE</text>
+  <text x="597" y="48" font-size="22" font-weight="700" text-anchor="middle">TINY JUDGE</text>
+  <rect x="147" y="80" width="110" height="90" rx="10" fill="#cfd8ff" stroke="#222" stroke-width="3"/>
+  <circle cx="180" cy="120" r="7" fill="#222"/><circle cx="224" cy="120" r="7" fill="#222"/>
+  <path d="M180 150 H224" stroke="#222" stroke-width="4"/>
+  <text x="202" y="215" font-size="20" text-anchor="middle">"Let me think</text>
+  <text x="202" y="242" font-size="20" text-anchor="middle">about this..."</text>
+  <text x="202" y="300" font-size="18" text-anchor="middle" fill="#555">runs once a week</text>
+  <text x="202" y="328" font-size="18" text-anchor="middle" fill="#555">costs $$$</text>
+  <rect x="567" y="100" width="60" height="55" rx="8" fill="#c9f0d1" stroke="#222" stroke-width="3"/>
+  <circle cx="584" cy="122" r="4" fill="#222"/><circle cx="610" cy="122" r="4" fill="#222"/>
+  <path d="M584 140 H610" stroke="#222" stroke-width="3"/>
+  <text x="597" y="215" font-size="28" font-weight="700" text-anchor="middle">"FAIL."</text>
+  <text x="597" y="262" font-size="20" text-anchor="middle">on every pull request</text>
+  <text x="597" y="300" font-size="18" text-anchor="middle" fill="#555">runs all day</text>
+  <text x="597" y="328" font-size="18" text-anchor="middle" fill="#555">costs pennies</text>
+</svg>

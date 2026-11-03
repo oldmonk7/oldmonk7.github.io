@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="Helvetica, Arial, sans-serif">
+  <rect width="800" height="380" fill="#fff"/>
+  <rect x="10" y="10" width="385" height="360" fill="#f4f4f4" stroke="#222" stroke-width="3"/>
+  <rect x="405" y="10" width="385" height="360" fill="#f4f4f4" stroke="#222" stroke-width="3"/>
+  <text x="202" y="50" font-size="24" font-weight="700" text-anchor="middle">EVAL DASHBOARD</text>
+  <text x="202" y="170" font-size="90" font-weight="700" text-anchor="middle" fill="#1a7f37">94%</text>
+  <text x="202" y="215" font-size="22" text-anchor="middle">pass rate</text>
+  <text x="202" y="300" font-size="20" text-anchor="middle" fill="#555">(last run: 6 days ago)</text>
+  <text x="597" y="50" font-size="24" font-weight="700" text-anchor="middle">PRODUCTION</text>
+  <circle cx="597" cy="150" r="55" fill="#ffd9a8" stroke="#222" stroke-width="3"/>
+  <circle cx="577" cy="140" r="6" fill="#222"/><circle cx="617" cy="140" r="6" fill="#222"/>
+  <path d="M572 175 Q597 150 622 175" fill="none" stroke="#222" stroke-width="4"/>
+  <path d="M520 250 Q540 205 560 250 Q580 195 600 250 Q620 205 640 250 Q660 210 675 250 Z" fill="#e5532d" stroke="#222" stroke-width="3"/>
+  <text x="597" y="310" font-size="22" text-anchor="middle">"Why is the bot telling</text>
+  <text x="597" y="338" font-size="22" text-anchor="middle">everyone to reboot?"</text>
+</svg>
