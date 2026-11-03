@@ -1,60 +1,121 @@
-<!DOCTYPE HTML>
-<!--
-	Design -> html5up.net | @ajlkn
--->
-<html>
-	<head>
-		<title>Shashank Garg</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Shashank Garg</title>
+	<meta name="description" content="Shashank Garg. Engineering leader building AI systems in production." />
+	<style>
+		:root {
+			--bg: #ffffff;
+			--fg: #1a1a1a;
+			--muted: #666666;
+			--line: #e5e5e5;
+			--link: #0b57d0;
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--bg: #111111;
+				--fg: #e8e8e8;
+				--muted: #9a9a9a;
+				--line: #2a2a2a;
+				--link: #8ab4f8;
+			}
+		}
+		* { box-sizing: border-box; }
+		body {
+			margin: 0;
+			background: var(--bg);
+			color: var(--fg);
+			font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+		}
+		main {
+			max-width: 640px;
+			margin: 0 auto;
+			padding: 72px 20px 48px;
+		}
+		h1 {
+			font-size: 2rem;
+			line-height: 1.2;
+			margin: 0 0 4px;
+			letter-spacing: -0.01em;
+		}
+		.tag { color: var(--muted); margin: 0 0 32px; }
+		h2 {
+			font-size: 0.8rem;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: var(--muted);
+			margin: 40px 0 12px;
+			padding-bottom: 6px;
+			border-bottom: 1px solid var(--line);
+		}
+		p { margin: 0 0 14px; }
+		a { color: var(--link); text-decoration: none; }
+		a:hover { text-decoration: underline; }
+		ul { padding: 0; margin: 0; list-style: none; }
+		li { margin: 0 0 14px; }
+		li strong { font-weight: 600; }
+		.when { color: var(--muted); font-size: 0.9rem; }
+		.links a { margin-right: 18px; }
+		footer { margin-top: 56px; color: var(--muted); font-size: 0.85rem; }
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Shashank Garg</h1>
+		<p class="tag">Engineering manager. I build AI systems that work in production.</p>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<p>
+			I lead engineers who ship ML and AI products where mistakes cost real money.
+			I like zero-to-one work, clean architecture, and teams that move fast and tell the truth.
+		</p>
+		<p>
+			Right now I am a hands-on Engineering Manager on
+			Gallup's AI Center of Excellence. We work on AI governance, an internal AI platform,
+			agentic access to company data, and Gallup AI.
+		</p>
 
-				<!-- Main -->
-					<section id="main">
-						<header>
-							<!-- <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
-							<h1>SHASHANK GARG</h1>
-								<p>Engineering Leader with experience launching and scaling fintech platforms, building and leading
-									high-performing product-engineering teams <a href="https://www.usnews.com/360-reviews/business/best-expense-management-software"><u>award-winning</u></a>
-									Currently building AI/ML solutions in production environments.
-	 								Proven track record as a founding engineer, team builder, and product-minded technologist. Passionate
-			                        about zero-to-one execution, architecture at scale, and aligning engineering with business strategy in
-                                    fast-paced startup environments
-								</p>
-							<p>Reach out to work together.</p>
-						</header>
-						<footer>
-							<ul class="icons">
-								<li><a href="https://twitter.com/shashankgarg7" class="icon brands fa-twitter">Twitter</a></li>
-								<li><a href="https://www.linkedin.com/in/shashankgarg7" class="icon brands fa-linkedin">LinkedIn</a></li>
-								<li><a href="https://github.com/oldmonk7" class="icon brands fa-github">GitHub</a></li>
-								<li><a href="/assets/shashank-garg-sem-3.pdf" class="icon fal fa-file-alt">Resume</a></li>
-							</ul>
-						</footer>
-					</section>
+		<h2>Work</h2>
+		<ul>
+			<li>
+				<strong>Gallup</strong>, AI Center of Excellence <span class="when">2026 to now</span><br />
+				Governance, platform, and products for AI at a research company with a very high trust bar.
+			</li>
+			<li>
+				<strong>TravelBank</strong>, Sr. Engineering Manager, ML/AI <span class="when">2016 to 2026</span><br />
+				Grew from engineer to tech lead to Sr. EM. Led ML and AI for ranking, fraud, compliance,
+				and GenAI with guardrails. Rebuilt the analytics pipeline for 5,000+ enterprise clients,
+				cut query latency 80%, and helped drive $10M ARR. The product handles $2B+ in
+				gross payment volume and is
+				<a href="https://www.usnews.com/360-reviews/business/best-expense-management-software">rated #1</a>
+				in its category by US News.
+			</li>
+			<li>
+				<strong>JourneyGen AI</strong>, Founding Engineer<br />
+				Built an SMS-based AI travel booking agent from zero.
+			</li>
+			<li>
+				<strong>Etip</strong>, Staff Engineer<br />
+				Launched a debit card product from zero.
+			</li>
+		</ul>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="copyright">
-							<li>&copy; Shashank Garg, 2020-2025</li>
-						</ul>
-					</footer>
+		<h2>What I care about</h2>
+		<ul>
+			<li><strong>Shipping AI with guardrails.</strong> Evals, observability, and clear limits before launch, not after.</li>
+			<li><strong>Building teams.</strong> I built a hiring system from scratch: rubrics, question sets, and interviewer training. I have screened 100+ candidates.</li>
+			<li><strong>Simple systems.</strong> Fewer moving parts. Fast feedback. Honest metrics.</li>
+		</ul>
 
-			</div>
+		<h2>Find me</h2>
+		<p class="links">
+			<a href="https://github.com/oldmonk7">GitHub</a>
+			<a href="https://www.linkedin.com/in/shashankgarg7">LinkedIn</a>
+			<a href="https://twitter.com/shashankgarg7">Twitter</a>
+		</p>
 
-		<!-- Scripts -->
-			<script>
-				if ('addEventListener' in window) {
-					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
-					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-				}
-			</script>
-
-	</body>
+		<footer>&copy; Shashank Garg, 2020-2026</footer>
+	</main>
+</body>
 </html>
